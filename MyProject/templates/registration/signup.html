@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+    <title>التسجيل</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="container">
+          <div class="box">
+                <form id="signup" method="post">
+                    <h2 class="title">تسجيل</h2>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="button">تسجيل</button>
+                    
+                </form>
+                <div class="foot">
+                    <span class="info"> هل لديك حساب بالفعل؟</span>
+                    <a href="{% url 'login' %}" class="login">تسجيل دخول</a>
+                </div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>

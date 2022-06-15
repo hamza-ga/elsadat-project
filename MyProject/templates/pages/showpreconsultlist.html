@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{{object.patient}}
+<br/>
+{{object.disease_symptoms}}
+<br/>
+{{object.history}}
+<br/>
+{% if object.x_rays_else %}
+    <img src="{{object.x_rays_else.url}}" class="img-fluid rounded-start">
+{% endif %}
+
+<a href="{% url 'prescription-medicine' object.pk %}">كتابة روشته</a>
+
+{% endblock %}

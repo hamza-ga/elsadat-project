@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% for element in object_list %}
+        {% if element.patient_name.pk == user.patient.pk %}
+            {% if element.re_prescription_date %}
+                You Have a re-prescription at date : <a href=" {% url 'show-prescription' element.pk %}">{{element.re_prescription_date}}</a> Click to show the prescription
+                <br/>
+                Click <a href="{% url 'addconsultation' element.doctor_name.pk %}">HERE</a> to make your new consult
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+
+
+{% endblock %}

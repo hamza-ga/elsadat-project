@@ -1,0 +1,42 @@
+{% comment %}
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Log In</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-primary">Log In</button>
+</form>
+
+{% endblock %}
+{% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'css/style-log-pat.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <img src="{% static 'img/user1.png' %}" alt="">
+            <h1>Welcome</h1>
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button class="btn btn-primary">Log In</button>
+            </form>
+          <p class="message">Not registered? <a href="{% url 'signup' %}">Create an account</a></p>
+        </div>
+      </div>
+    
+
+    <script src="main.js"></script>
+</body>
+</html>

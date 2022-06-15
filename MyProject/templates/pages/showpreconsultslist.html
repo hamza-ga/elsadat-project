@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<hr>
+{% for consult in consults %}
+    {% if consult.is_reconsult %}
+
+    <a href="{% url 'showpreconsult' consult.id %}">{{consult.disease_symptoms}}</a>
+
+    <br/>
+    <hr>
+    {% endif %}
+
+{% endfor %}
+
+{% endblock %}

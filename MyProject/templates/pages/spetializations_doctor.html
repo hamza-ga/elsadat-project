@@ -1,0 +1,56 @@
+
+{% load static %}
+{% if user.patient.is_authenticated %}
+  <!DOCTYPE html>
+  <html lang="ar">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="{% static 'css/pat-profile.css' %}" />
+      <title>Patient</title>
+    </head>
+    <body>
+      <header class="header">
+          <img class="logo" src="{% static 'img/logo.png' %}" alt="">
+          <a href="{% url 'logout' %}" class="btn-head">تسجيل الخروج</a>
+          
+      </header>
+
+      <div class="flex">
+          <div class="container">
+              <main>MAIN
+                <br>
+                <br>
+                <li>
+                    {% for one in dok_info %}
+                    {{one.username}}
+                    {{one.first_name}}
+                    {{one.last_name}}
+                    {{one.work_hours}}
+                    <a class = 'btn' href="{% url 'addconsultation' one.pk %}">اوصف حالتك</a>
+                    <a class = 'btn' href="{% url 'view_doctor_profile' one.pk %}">عرض صفحة الطبيب</a>
+                    <br/>
+                {% endfor %} 
+              </main>
+              
+          </div>
+          <aside>
+              <a href="{% url 'home' %}" class="btn">الصفحة الرئيسيه</a>
+              <a href="{% url 'showappo' %}" class="btn">الميعاد</a>
+              
+              
+                  <a href="{% url 'show-prescriptionlist' %}" class="btn">كارت المتابعة</a>
+          </aside>
+      </div>
+
+      
+  <footer class="footer">
+      <span>All rights reserved 2022 / 2023 | جميع الحقوق محفوظة 
+          <!-- <img  class="copy foot" src="img/copyright.png" alt=""> --></span>
+  </footer>
+  <script src="main.js"></script>
+
+    </body>
+  </html>
+{% endif %}

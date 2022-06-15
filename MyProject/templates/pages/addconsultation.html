@@ -1,0 +1,61 @@
+
+{% load static %}
+{% if user.patient.is_authenticated %}
+  <!DOCTYPE html>
+  <html lang="ar">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="{% static 'css/pat-profile.css' %}" />
+      <title>Patient</title>
+    </head>
+    <body>
+      <header class="header">
+          <img class="logo" src="{% static 'img/logo.png' %}" alt="">
+          <a href="{% url 'logout' %}" class="btn-head">تسجيل الخروج</a>
+          
+      </header>
+
+      <div class="flex">
+          <div class="container">
+              <main>MAIN
+                <br>
+                <br>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    اوصف حالتك
+                    {{form.as_p}}
+                    {{form.media}}
+                    <button type="submit">ارسال</button>
+                </form>
+              </main>
+          </div>
+          <script>
+            var p_name = "{{user.patient.id}}";
+            document.getElementById("patient").value = p_name ;
+        
+            var d_name = "{{pk}}";
+            document.getElementById("doctor").value = d_name ;
+            
+            var c_name = '{{c_pk}}';
+            document.getElementById("category").value = c_name ;
+        </script>
+          <aside>
+              <a href="{% url 'home' %}" class="btn">الصفحة الرئيسيه</a>
+              <a href="{% url 'showappo' %}" class="btn">الميعاد</a>
+              
+              
+                  <a href="{% url 'show-prescriptionlist'%}" class="btn">كارت المتابعة</a>
+          </aside>
+      </div>
+
+      
+  <footer class="footer">
+      <span>All rights reserved 2022 / 2023 | جميع الحقوق محفوظة 
+          <!-- <img  class="copy foot" src="img/copyright.png" alt=""> --></span>
+  </footer>
+  <script src="main.js"></script>
+    </body>
+  </html>
+{% endif %}

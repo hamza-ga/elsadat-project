@@ -1,0 +1,94 @@
+{% load static %}
+{% if user.patient.is_authenticated %}
+  <!DOCTYPE html>
+  <html lang="ar">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="{% static 'css/pat-profile.css' %}" />
+      <title>Patient</title>
+    </head>
+    <body>
+      <header class="header">
+          <img class="logo" src="{% static 'img/logo.png' %}" alt="">
+          <a href="{% url 'logout' %}" class="btn-head">تسجيل الخروج</a>
+          
+      </header>
+
+      <div class="flex">
+          <div class="container">
+              <main>MAIN
+                <br>
+                <br>
+                {{x}}
+              </main>
+              
+          </div>
+          <aside>
+              <a href="{% url 'home' %}" class="btn">الصفحة الرئيسيه</a>
+              <div class="kind">
+              </div>
+              
+              
+                  <a href="{% url 'show-prescriptionlist' %}" class="btn">كارت المتابعة</a>
+          </aside>
+      </div>
+
+      
+  <footer class="footer">
+      <span>All rights reserved 2022 / 2023 | جميع الحقوق محفوظة 
+          <!-- <img  class="copy foot" src="img/copyright.png" alt=""> --></span>
+  </footer>
+  <script src="main.js"></script>
+    </body>
+  </html>
+{% endif %}
+
+
+{% load static %}
+{%if user.doctor.is_authenticated %}
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/doc-profile.css' %}" />
+    <title>Doctor</title>
+  </head>
+  <body>
+    <header class="header">
+        <img class="logo" src="{% static 'img/logo.png' %}" alt="">
+        <a href="{% url 'logout' %}" class="btn-head">تسجيل الخروج</a>
+    </header>
+
+    <div class="flex">
+        <div class="container">
+            <main>MAIN
+                <br>
+                <br>
+                {{x}}
+            </main>
+        </div>
+
+        <div class="side">
+        <aside>
+            <a href="{% url 'showappo' %}" class="btn">الميعاد</a>
+            <a href="{% url 'showconsults' user.doctor.pk %}" class="btn">المرضى</a>
+            <a href="{% url 'show-prescriptionlist' %}" class="btn edit"> تعديل</a>
+            <a href="#" class="btn">الزيارات</a>
+        </aside>
+        </div>
+
+    </div>
+
+    
+<footer class="footer">
+    <span>All rights reserved 2022 / 2023 | جميع الحقوق محفوظة 
+        <!-- <img  class="copy foot" src="img/copyright.png" alt=""> --></span>
+</footer>
+    <script src="main.js"></script>
+  </body>
+</html>
+{% endif %}
