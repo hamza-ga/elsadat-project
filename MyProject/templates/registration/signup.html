@@ -9,10 +9,27 @@
     <title>التسجيل</title>
 </head>
 <body>
+    
     <div id="wrapper">
         <div class="container">
           <div class="box">
                 <form id="signup" method="post">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <img class="title" src="{% static 'img/logo.png' %}" alt="" style="margin-bottom: unset;
+                    width: 120px;
+                    height: 90px;
+                    position: absolute;
+                    left: 120px;">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                     <h2 class="title">تسجيل</h2>
                     {% csrf_token %}
                     {{ form.as_p }}
