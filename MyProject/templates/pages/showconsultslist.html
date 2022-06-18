@@ -18,27 +18,96 @@
 
     <div class="flex">
         <div class="container">
-            <main>MAIN
-                <br>
-                <br>
-                {% for consult in consults %}
-                    <a href="{% url 'showconsult' consult.id %}">{{consult.patient.first_name}}</a>
-                <br/>
-                <hr>
-                {% endfor %}
+            <main>
+                <table style="border: 1px solid;border-collapse: collapse;">
+                    <caption>الاستشارات</caption>
+                    <tr style="border: 1px solid;border-collapse: collapse;">
+                      <th style="border: 1px solid;border-collapse: collapse;background-color: #168ae2;color: white;">رقم الاستشاره</th>
+                      <th style="border: 1px solid;border-collapse: collapse;background-color: #168ae2;color: white;">الاسم</th>
+                      <th style="border: 1px solid;border-collapse: collapse;background-color: #168ae2;color: white;">الميلاد</th>
+                      <th style="border: 1px solid;border-collapse: collapse;background-color: #168ae2;color: white;">فصيلة الدم</th>
+                      <th style="border: 1px solid;border-collapse: collapse;background-color: #168ae2;color: white;">النوع</th>
+                      <th style="border: 1px solid;border-collapse: collapse;background-color: #168ae2;color: white;">الدوله</th>
+                      <th style="border: 1px solid;border-collapse: collapse;background-color: #168ae2;color: white;">رقم الهاتف</th>
+                    </tr>
+                    {% for consult in consults %}
+                    <tr style="border: 1px solid;border-collapse: collapse;:hover {background-color: coral;}">
+                      <td style="border: 1px solid;border-collapse: collapse;color: black;"><a href="{% url 'showconsult' consult.id %}">{{consult.id}}</a></td> 
+                      <td style="border: 1px solid;width: 20%;border-collapse: collapse;color: black;"><a href="{% url 'showconsult' consult.id %}">{{consult.patient.first_name}} {{consult.patient.last_name}}</a></td>
+                      <td style="border: 1px solid;width: 20%;border-collapse: collapse;color: black;"><a href="{% url 'showconsult' consult.id %}">{{consult.patient.birthday}}</a></td>
+                      <td style="border: 1px solid;width: 20%;border-collapse: collapse;color: black;"><a href="{% url 'showconsult' consult.id %}">{{consult.patient.blood}}</a></td>
+                      <td style="border: 1px solid;width: 20%;border-collapse: collapse;color: black;"><a href="{% url 'showconsult' consult.id %}">{{consult.patient.gender}}</a></td>
+                      <td style="border: 1px solid;width: 20%;border-collapse: collapse;color: black;"><a href="{% url 'showconsult' consult.id %}">{{consult.patient.city}}</a></td>
+                      <td style="border: 1px solid;width: 20%;border-collapse: collapse;color: black;"><a href="{% url 'showconsult' consult.id %}">{{consult.patient.phone_number}}</a></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+                    
             </main>
         </div>
 
         <div class="side">
-        <aside>
+
+            <div class="sidebar">
+                <a href="{% url 'showappo' %}"><i class="fa fa-fw fa-home"></i> الميعاد</a>
+                <hr color ='black'>
+                <a href="{% url 'showconsults' user.doctor.pk %}"><i class="fa fa-fw fa-wrench"></i> المرضى</a>
+                <hr color ='black'>
+                <a href="{% url 'show-prescriptionlist' %}"><i class="fa fa-fw fa-user"></i> تعديل</a>
+              </div>
+              {%comment%}
             <a href="{% url 'showappo' %}" class="btn">الميعاد</a>
             <a href="{% url 'showconsults' user.doctor.pk %}" class="btn">المرضى</a>
             <a href="{% url 'show-prescriptionlist' %}" class="btn edit"> تعديل</a>
             <a href="#" class="btn">الزيارات</a>
-        </aside>
+            {% endcomment %}
+    
         </div>
-
     </div>
+    <style>
+        /* Style the sidebar - fixed full height */
+.sidebar {
+
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #168ae2;
+    overflow-x: hidden;
+    padding-top: 150px;
+    height: 100%;
+    width: 300px;
+    text-align: center;
+
+  }
+  /* Style sidebar links */
+.sidebar a {
+    padding: 18px 18px 18px 18px;
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: 400;
+    color: #fcfafa;
+    display: block;
+  }
+  
+  /* Style links on mouse-over */
+  .sidebar a:hover {
+    color: #241818;
+  }
+  
+  /* Style the main content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+  }
+  
+  /* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 150px;}
+    .sidebar a {font-size: 30px;}
+  }
+ 
+    </style>
 
     
 <footer class="footer">

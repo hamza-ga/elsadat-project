@@ -30,7 +30,7 @@ class Patient(User):
     )
     birthday = models.DateField('%Y-%m-%d')
     phone_number = models.CharField(max_length=100)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True)
+    gender = models.CharField(max_length=50, choices=GENDER_CHOICES, null=True)
     blood = models.CharField(max_length=50, choices= BLOOD_TYPES)
     city = models.CharField(max_length=50, default='0')
 
@@ -44,8 +44,7 @@ class Patient(User):
 
     def age(self):
         import datetime
-        return int(datetime.date.today() - self.birthday).days / 365.25  
-
+        return (datetime.date.today() - self.birthday).days / 365.25
 
 
 class Doctor(User):
