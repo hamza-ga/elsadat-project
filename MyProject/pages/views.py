@@ -1,7 +1,7 @@
 from django.shortcuts import get_list_or_404, render , get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView , ListView , DetailView, UpdateView
-from members.models import Doctor, Patient, Specialties
+from members.models import Doctor
 from pages.forms import ConsaltationsForm, PrescriptionForm, AppointmentForm , EditPrescriptionForm
 from .models import Consaltations , Prescription, Appointment
 # Create your views here.
@@ -21,6 +21,7 @@ class EditPrescription(UpdateView):
     template_name = 'pages/editprescription.html'
     success_url = reverse_lazy('sucess')
 
+
 class ShowAppointment(ListView):
     model = Appointment
     template_name = 'pages/showapoointment.html'
@@ -37,22 +38,10 @@ class AppointmentView(CreateView):
         context['consult_id'] = consult.pk
         return context
 
-class CreatePreConsult():
-    pass
-
-class ShowPreConsult(ListView):#patient view
-    model = Prescription
-    template_name = 'pages/showpreconsultation.html'
 
 class ShowPrescription(DetailView):
     model = Prescription
     template_name = 'pages/showprescription.html'
-
-    # def get_context_data(self, **kwargs):
-    #     prescription = get_object_or_404(Prescription, doctor_name= self.kwargs['pk'])
-    #     context = super(WritePrescriptionView, self).get_context_data(**kwargs)
-    #     context['prescription'] = prescription
-    #     return context
 
 
 
@@ -91,21 +80,6 @@ class ShowConsultView(DetailView):#doctor view
     model = Consaltations
     template_name = 'pages/showconsultlist.html'
 
-
-
-class ShowPreConsultsView(ListView):#doctor view
-    model = Consaltations
-    template_name = 'pages/showpreconsultslist.html'
-
-    def get_context_data(self, **kwargs):
-        consults = get_list_or_404(Consaltations, doctor= self.kwargs['pk'])
-        context = super(ShowPreConsultsView, self).get_context_data(**kwargs)
-        context['consults'] = consults
-        return context   
-
-class ShowPreConsultView(DetailView):#doctor view
-    model = Consaltations
-    template_name = 'pages/showpreconsultlist.html'
 
 
 def getSugaryInfo(request):
