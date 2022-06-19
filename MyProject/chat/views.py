@@ -8,6 +8,8 @@ from chat.models import Message
 from chat.forms import SignUpForm
 from chat.serializers import MessageSerializer, UserSerializer
 
+def index(request):
+    return render(request,'registration/index.html')
 
 @csrf_exempt
 def message_list(request, sender=None, receiver=None):

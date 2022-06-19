@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,100;1,200;1,400;1,700&display=swap");
+* {
+    /* font-family: "Poppins", sans-serif; */
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    -webkit-transition: 0.2s linear;
+    transition: 0.2s linear;
+    list-style: none;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #10221b;
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    border: 0.2rem solid #10221b;
+    color: #10221b;
+    cursor: pointer;
+    background: none;
+    font-size: 22px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    padding: 1rem 3rem;
+    border-radius: 25px;
+}
+
+.btn:hover {
+    background: #10221b;
+    color: #fff;
+}
+
+
+/* navbar */
+
+.navbar a {
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.5s;
+    padding: 8px 15px;
+    color: rgb(80, 83, 238);
+}
+
+.navbar a:hover {
+    color: white;
+    box-shadow: 0 0 5px rgb(31, 2, 100);
+    border-radius: 5px;
+}
+
+.navbar {
+    margin-top: 10px;
+}
+
+.hover:hover .sub-ul {
+    display: block;
+}
+
+
+/* ===========
+2.1 sub Admin + Doctor + Patient
+===========*/
+
+.header {
+    background-color: white;
+    position: fixed;
+    top: -10px;
+    left: 0;
+    right: 0;
+    padding: 1rem 9%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.navbar a:hover {
+    background-color: #3da8c0;
+    color: white;
+}
+
+.header.active {
+    background: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.header img {
+    max-width: 140px;
+}
+
+.logo {
+    margin-right: auto;
+}
+
+.sub-ul {
+    display: none;
+    position: absolute;
+    top: 90px;
+    right: 400px;
+    border-top: 1px solid cyan;
+    background-color: rgb(135, 148, 175);
+    opacity: 0.7;
+    border-radius: 5px;
+    padding: 5px;
+    width: 110px;
+}
+
+.sub-ul li {
+    text-align: center;
+    padding: 6px 0;
+    font-size: 17px;
+    border-bottom: 1px solid yellowgreen;
+}
+
+.sub-ul li a {
+    color: white;
+}
+
+.sub-ul li a:hover {
+    color: yellow;
+    font-weight: bold;
+}
+
+---------------------------------- section {
+    padding: 5rem 9%;
+}
+
+.home {
+    padding: 0;
+}
+
+.home .box {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-size: cover !important;
+    background-position: center !important;
+    justify-content: flex-end;
+    padding: 2rem 9%;
+}
+
+.home .box.second {
+    justify-content: flex-start;
+}
+
+.home .box .content {
+    margin-top: 5px;
+    width: 43rem;
+}
+
+.home .box .content h3 {
+    direction: rtl;
+    font-size: 4.5rem;
+    color: #10221b;
+    padding-top: 0.5rem;
+    text-transform: uppercase;
+}
+
+.home .box .content p {
+    direction: rtl;
+    line-height: 2;
+    color: #10221b;
+    font-size: 14px;
+}
+
+.home .box .content p:hover {
+    font-weight: bold;
+}
+
+.home .box .content .title {
+    direction: rtl;
+    color: rgb(24, 24, 24);
+}
+
+/* .title2{
+    letter-spacing: 0;
+    font-size: 14px;
+} */
+
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 3rem;
+    color: #10221b;
+}

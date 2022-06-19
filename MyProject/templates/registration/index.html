@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}" />
+    <title>Hospital Web</title>
+  </head>
+
+  <body>
+    <!-- header section starts -->
+    <header class="header">
+      <img class="logo" src="{% static 'img/logo.png'%}" alt="" />
+      <nav class="navbar">
+        <a href="{% url 'index' %}">الرئيسية</a>
+        <a href="contact.html">للتواصل</a>
+        <a href="{% url 'signup' %}">انشاء حساب</a>
+
+        <span class="hover">
+          <a id="login" href="{% url 'login'%}">تسجيل دخول </a>
+        </span>
+      </nav>
+    </header>
+    <!-- header section ends -->
+
+    <!-- home section starts -->
+
+    <section class="home" id="home">
+      <div class="swiper home-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="box" style="background: url(img/bg.jpg) no-repeat">
+              <div class="content">
+                <h3>كبسولة</h3>
+                <p>
+                  ضغط الدم المرتفع هو حالة شائعة تكون فيها قوة اندفاع الدم طويلة
+                  الأمد مقابل جدران الشرايين مرتفعة بما يكفي للتسبب بمشكلات صحية
+                  في نهاية الأمر، مثل مرض القلب. ويتحدد ضغط الدم من خلال كمية
+                  الدم التي يضخها القلب ومدى مقاومة تدفقه بالشرايين. وكلما زادت
+                  كمية الدم التي يضخها قلبك وضاقت شرايينك، ارتفع ضغط دمك. تُقاس
+                  قراءة ضغط الدم بوحدة ملم زئبقي. ويظهر بجهاز القياس رقمان.
+                </p>
+                <a href="{% url 'signup' %}" class="btn">ابدأ معنا</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div
+              class="box second"
+              style="background: url(img/doc2.jpg) no-repeat"
+            >
+              <div class="content">
+                <h3>كبسولة</h3>
+                <p class="title2">
+                  يأتي الكولسترول من طريقين رئيسيين هما :- 1-الكبد : حيث يقوم
+                  الكبد بانتاج 80% من كولسترول الدم ويعتبرالكبد هو المكان
+                  الرئيسي لانتاج الكولسترول . 2-الوارد الغذائي : حيث يأتي 20% من
+                  كولسترول الدم من مصادر غذائية أهمها اللحوم، الدجاج، السمك،
+                  البيض، الزبدة، الجبنة والحليب الكامل، في حين لا يحوي الطعام
+                  النباتي (الفواكه – الخضار – الحبوب) على الكولسترول . يتم بعد
+                  تناول الطعام امتصاص الكولسترول من الأمعاء إلى الدوران الدموي
+                  حيث يوضع ضمن محفظة بروتينية، ويدعى الكولسترول مع محفظته
+                  البروتينية بالدقائق الكيلوسية او الكيلومكرون (Chylomicron)،
+                  ويقوم الكبد بعد الوجبة بإزالة الدقائق الكيلوسية من الدوران
+                  الدموي أما بين الوجبات فيقوم الكبد بانتاج وإفراز الكولسترول
+                  مرة ثانية إلى الدوران الدموي .
+                </p>
+                <a href="{% url 'signup' %}" class="btn">ابدأ معنا</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="box" style="background: url(img/bg-10.jpg) no-repeat">
+              <div class="content">
+                <h3>كبسولة</h3>
+                <p class="title">
+                  مرض السكري هو مرض بسبب زيادة مستوى السكر في الدم: ما هو داء
+                  السكري نتيجة لنقص نسبي أو كامل في الانسولين الذي يفرزه
+                  النبكرياس إلى الدم أو لخلل في قوة تأثير الأنسولين على الأنسجة
+                  التي تستهلك الجلوكوز مثل العضلات والنسيج الدهني والكبد وينتج
+                  عن هذا الارتفاع المتكرر مضاعفات مزمنة في أعضاء مختلفة من الجسم
+                  وينقسم مرض السكري إلى ثلاث انواع: مرض السكري النوع الاول مرض
+                  السكري النوع الثاني مرض السكري الحملي
+                </p>
+                <a href="{% url 'signup' %}" class="btn">ابدأ معنا</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </section>
+    <!-- home section ends -->
+
+    <!-- custom js file link -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/main.js'%}"></script>
+  </body>
+</html>
